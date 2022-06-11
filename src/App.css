@@ -1,8 +1,12 @@
-* {
-  margin: 0
+.App {
+  width: 100vw;
 }
 
-.App {
-  display: flex;
-  width: 100vw;
+.card {
+  width: 100px;
+  height: 100px;
+}
+
+.react-card-flip {
+  display: inline-block;
 }
