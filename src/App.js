@@ -7,6 +7,9 @@ function App() {
     <div className="App">
       <Navigation />
       <Card />
+      <Card />
+      <Card />
+      <Card />
     </div>
   );
 }

@@ -3,10 +3,24 @@
 }
 
 .card {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+.front {
+  background-color: lightblue !important;
+}
+
+.back {
+  background-color: lightcoral !important
 }
 
 .react-card-flip {
   display: inline-block;
+  margin: 20px;
 }
