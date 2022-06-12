@@ -1,7 +1,7 @@
 import ReactCardFlip from 'react-card-flip';
 import { useState } from 'react'
 
-export default function Card() {
+export default function Card({ request }) {
     const [isFlipped, setIsFlipped] = useState(false)
 
     function handleClick(e) {
@@ -9,22 +9,19 @@ export default function Card() {
         setIsFlipped(!isFlipped);
     }
 
+
+
+
     return (
-        <ReactCardFlip className="front" isFlipped={isFlipped} flipDirection="horizontal" >
-            {/* <YOUR_FRONT_CCOMPONENT> */}
-            <div className="card front" >
-                This is the front of the card.
-                <img src="/circular-arrow-svgrepo-com.svg" style={{ width: '15px', marginTop: 'auto', marginLeft: 'auto', position: 'relative' }} onClick={handleClick} />
-            </div>
-            {/* </YOUR_FRONT_CCOMPONENT> */}
-
-            {/* <YOUR_BACK_COMPONENT> */}
-            <div className="card back">
-                This is the back of the card.
-                <img src="/circular-arrow-svgrepo-com.svg" style={{ width: '15px', marginTop: 'auto', marginLeft: 'auto', position: 'relative' }} onClick={handleClick} />
-
-            </div>
-            {/* </YOUR_BACK_COMPONENT> */}
-        </ReactCardFlip>
+        <>
+            < div className="low-urgency card" >
+                <img src={request.icon} alt={request.name} />
+                <p>{request.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}<br /><u>Soon</u></p>
+            </div >
+            < div className="high-urgency card" >
+                <img src={request.icon} alt={request.name} />
+                <p>{request.name.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())}<br /><u>Now</u></p>
+            </div >
+        </>
     )
 }

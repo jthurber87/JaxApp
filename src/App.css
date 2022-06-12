@@ -1,26 +1,42 @@
 .App {
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cards-container {
+  padding: 50px;
+  width: 60vw;
+  display: flex;
+  flex-flow: wrap;
 }
 
 .card {
-  width: 150px;
-  height: 200px;
+  width: 30%;
+  height: 40%;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
+  box-shadow: 5px 5px 5px 1px #6f6f6f;
+  cursor: pointer;
+  margin: 5%;
 }
 
-.front {
-  background-color: lightblue !important;
+.low-urgency {
+  background-color: rgb(182, 230, 173) !important;
 }
 
-.back {
-  background-color: lightcoral !important
+.low-urgency:active {
+  background-color: rgb(156, 198, 148) !important;
 }
 
-.react-card-flip {
-  display: inline-block;
-  margin: 20px;
+.high-urgency {
+  background-color: rgb(255, 131, 131) !important
+}
+
+.high-urgency:active {
+  background-color: rgb(214, 106, 106) !important
 }

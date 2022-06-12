@@ -2,7 +2,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 export default function Navigation() {
     return (
-        <Navbar bg="light" expand="xl">
+        <Navbar fixed="top" style={{ marginBottom: '20px' }} bg="light" expand="xl">
             <Navbar.Brand href="#home">JaxApp</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
