@@ -44,12 +44,8 @@ export default function Card({ request, CGPhone }) {
     return (
         <>
             < div className="low-urgency card" onClick={(e) => handleClick(e, "Soon")} >
-                {state.submitting ? <img src="/circular-arrow-svgrepo-com.svg" /> :
-                    <>
-                        <img src={request.icon} alt={request.name} />
-                        <p>{request.name}<br /><u>Soon</u></p>
-                    </>
-                }
+                <img src={request.icon} alt={request.name} />
+                <p>{request.name}<br /><u>Soon</u></p>
             </div >
             < div className="high-urgency card" onClick={(e) => handleClick(e, "Now")}>
                 <img src={request.icon} alt={request.name} />
