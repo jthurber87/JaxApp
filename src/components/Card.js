@@ -19,7 +19,7 @@ export default function Card({ request, CGPhone }) {
             },
             body: JSON.stringify({
                 to: CGPhone,
-                body: `Request: ${request.name} \n Urgency: ${urgency}.`
+                body: request.name + " " + urgency
             })
         })
             .then(res => res.json())
@@ -43,13 +43,17 @@ export default function Card({ request, CGPhone }) {
     }
     return (
         <>
-            < div className="low-urgency card" onClick={(e) => handleClick(e, "Soon")} >
+            < div className="low-urgency card" onClick={(e) => handleClick(e, "soon")} >
                 <img src={request.icon} alt={request.name} />
-                <p>{request.name}<br /><u>Soon</u></p>
+                <p>{request.name.replace(/\w\S*/g, function (txt) {
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+                })} < br /> <u>Soon</u></p>
             </div >
-            < div className="high-urgency card" onClick={(e) => handleClick(e, "Now")}>
+            < div className="high-urgency card" onClick={(e) => handleClick(e, "now")}>
                 <img src={request.icon} alt={request.name} />
-                <p>{request.name}<br /><u>Now</u></p>
+                <p>{request.name.replace(/\w\S*/g, function (txt) {
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+                })} < br /> <u>Now</u></p>
             </div >
         </>
     )

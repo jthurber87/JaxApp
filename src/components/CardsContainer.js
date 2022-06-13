@@ -4,7 +4,7 @@ import Card from './Card';
 export default function CardsContainer() {
 
     const [requests, setRequests] = useState(null);
-    const [CGPhone, setCGPhone] = useState(null)
+    const [CGPhone, setCGPhone] = useState(9492146431)
 
 
     useEffect(() => {
@@ -13,9 +13,9 @@ export default function CardsContainer() {
             .then(data => setRequests(data))
     }, [])
 
-    useEffect(() => {
-        setCGPhone(prompt("Please enter your caregivers cell phone number to receive text messages from the Jax App"))
-    }, [])
+    // useEffect(() => {
+    //     setCGPhone(prompt("Please enter your caregivers cell phone number to receive text messages from the Jax App"))
+    // }, [])
 
     return (
         <div className="cards-container">
