@@ -1,16 +1,4 @@
-import ReactCardFlip from 'react-card-flip';
-import { useState } from 'react'
-
 export default function Card({ request }) {
-    const [isFlipped, setIsFlipped] = useState(false)
-
-    function handleClick(e) {
-        e.preventDefault();
-        setIsFlipped(!isFlipped);
-    }
-
-
-
 
     return (
         <>

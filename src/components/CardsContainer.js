@@ -1,13 +1,19 @@
+import { useState, useEffect } from 'react'
 import Card from './Card';
-import requests from '../requests.js'
 
 export default function CardsContainer() {
+
+    const [requests, setRequests] = useState(null);
+
+    useEffect(() => {
+        fetch('/requests')
+            .then(res => res.json())
+            .then(data => setRequests(data))
+    }, [])
+
     return (
         <div className="cards-container">
-            {requests.map((request, i) => (
-                <Card key={i} request={request} />
-            ))}
-
+            {requests ? requests.map((request, idx) => <Card key={idx} request={request} />) : "Loading..."}
         </div>
     )
 }
