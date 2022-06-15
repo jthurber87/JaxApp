@@ -76,15 +76,16 @@ const requests = [
 // main().catch(console.error);
 client.connect()
 
-async function createRequests() {
-    const result = await client.db("JaxApp").collection("requests").insertMany(requests);
-    console.log(`New listing created with the following id: ${result.insertedId}`);
-}
-
-app.get('/createRequests', async (req, res) => {
+app.get('/requests/seed', async (req, res) => {
     await client.db("JaxApp").collection("requests").deleteMany({});
-    await createRequests()
-    res.redirect('/home')
+    const result = await client.db("JaxApp").collection("requests").insertMany(requests);
+    console.log(`New listing created with the following id: ${result.insertedId}`); res.redirect('/home')
+})
+
+app.post('/requests/new', async (req, res) => {
+    console.log(req.body)
+    const result = await client.db("JaxApp").collection("requests").insertOne(req.body);
+    console.log(`New listing created with the following id: ${result.insertedId}`);
 })
 
 app.get("/requests", async (req, res) => {

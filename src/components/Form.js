@@ -1,7 +1,11 @@
 import { Form, Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 export default function Forms() {
+
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: '',
         urgency: '',
@@ -14,16 +18,28 @@ export default function Forms() {
 
     useEffect(() => {
         async function fetchData() {
-            await fetch(`https://api.svgapi.com/v1/SxlFUKwk51/list/?search=${iconSearch}&limit=10`)
+            await fetch(`https://api.svgapi.com/v1/SxlFUKwk51/list/?search=${iconSearch}&limit=50`)
                 .then(res => res.json())
                 .then(data => setIcons(data.icons))
         }
         fetchData()
     }, [iconSearch])
 
-    useEffect(() => {
-        console.log(formData)
-    }, [formData])
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (formData.name === '' || formData.icon === '') {
+            alert('Please fill out all fields')
+        } else {
+
+            try {
+                await axios.post('/requests/new', formData)
+                    .then(res => console.log(res))
+                    .then(navigate('/home'))
+            } catch (err) {
+                console.log(err)
+            }
+        }
+    }
 
     const handleIconSearch = (e) => {
         e.preventDefault()
@@ -32,7 +48,7 @@ export default function Forms() {
 
 
     return (
-        <Form className="form">
+        <Form className="form" onSubmit={handleSubmit}>
             <h1>Add a Request</h1>
             <Form.Group className="mb-3" >
                 <Form.Label>Name:</Form.Label>

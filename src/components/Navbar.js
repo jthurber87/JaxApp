@@ -1,6 +1,9 @@
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 
-export default function Navigation() {
+export default function Navigation({ setCGPhone }) {
+    const handleSetCGPhone = () => {
+        setCGPhone(parseInt(prompt("Please enter your caregivers cell phone number to receive text messages from the Jax App")))
+    }
     return (
         <>
 
@@ -20,6 +23,7 @@ export default function Navigation() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link className="ms-auto" href="/add-request">Add Request</Nav.Link>
+                        <Nav.Link className="ms-auto" onClick={handleSetCGPhone}>Set Caregiver Phone Number</Nav.Link>
                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

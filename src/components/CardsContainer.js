@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react'
 import Card from './Card';
+import axios from 'axios'
 
-export default function CardsContainer() {
+export default function CardsContainer({ CGPhone }) {
 
     const [requests, setRequests] = useState(null);
-    const [CGPhone, setCGPhone] = useState(9492146431)
 
 
     useEffect(() => {
-        fetch('/requests')
-            .then(res => res.json())
-            .then(data => setRequests(data))
+        const fetchData = async () => {
+            await axios.get('/requests')
+                .then(data => setRequests(data.data))
+        }
+        fetchData()
     }, [])
+    console.log(requests)
 
     // useEffect(() => {
     //     setCGPhone(prompt("Please enter your caregivers cell phone number to receive text messages from the Jax App"))
