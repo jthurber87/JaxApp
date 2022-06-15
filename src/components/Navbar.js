@@ -18,8 +18,8 @@ export default function Navigation({ setCGPhone }) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link className="ms-auto" href="/add-request">[  Add Request  ]</Nav.Link>
-                        <Nav.Link className="ms-auto" onClick={() => setCGPhone(parseInt(prompt("Please enter your caregiver's cell phone number to receive text messages from JaxApp")))}>[ Set Caregiver Phone Number ]</Nav.Link>
+                        <Nav.Link className="ms-auto" href="/add-request">[  <u>Add Request</u>  ]</Nav.Link>
+                        <Nav.Link className="ms-auto" onClick={() => setCGPhone(parseInt(prompt("Please enter your caregiver's cell phone number to receive text messages from JaxApp")))}>[ <u>Set Caregiver Phone Number</u> ]</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

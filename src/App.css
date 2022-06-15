@@ -16,6 +16,7 @@ h1 {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .card {
@@ -27,10 +28,10 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  box-shadow: 5px 5px 5px 1px #6f6f6f;
+  box-shadow: 6px 6px 6px 1px #6f6f6f;
   cursor: pointer;
   margin: 3%;
-  margin-top: 50px;
+  margin-top: 5%;
 }
 
 .form {
@@ -48,6 +49,7 @@ h1 {
 
 .low-urgency {
   background-color: rgb(182, 230, 173) !important;
+  border: 3px solid rgb(156, 198, 148) !important;
 }
 
 .low-urgency:active {
@@ -55,7 +57,8 @@ h1 {
 }
 
 .high-urgency {
-  background-color: rgb(255, 131, 131) !important
+  background-color: rgb(255, 131, 131) !important;
+  border: 3px solid rgb(214, 106, 106) !important
 }
 
 .high-urgency:active {
@@ -64,6 +67,10 @@ h1 {
 
 .btn-primary {
   margin-top: 20px;
+}
+
+.navbar {
+  padding: 10px
 }
 
 .selected {
