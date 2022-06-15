@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export default function Card({ request, CGPhone }) {
+export default function Card({ request, CGPhone, setSelected, id }) {
 
     const [state, setState] = useState(
         {
@@ -43,17 +43,21 @@ export default function Card({ request, CGPhone }) {
     }
     return (
         <>
-            < div className="low-urgency card" onClick={(e) => handleClick(e, "soon")} >
+            < div className="low-urgency card animate__fadeInDown" onClick={(e) => handleClick(e, "soon")} >
                 <img src={request.icon} alt={request.name} className="icon" />
                 <p>{request.name.replace(/\w\S*/g, function (txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-                })} < br /> <u>Soon</u></p>
+                })}
+                </p>
+                <p><u>Soon</u></p>
             </div >
-            < div className="high-urgency card" onClick={(e) => handleClick(e, "now")}>
+            < div className="high-urgency card animate__fadeInDown" onClick={(e) => handleClick(e, "now")}>
                 <img src={request.icon} alt={request.name} className="icon" />
                 <p>{request.name.replace(/\w\S*/g, function (txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-                })} < br /> <u>Now</u></p>
+                })}
+                </p>
+                <p><u>Now</u></p>
             </div >
         </>
     )

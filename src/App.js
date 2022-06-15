@@ -1,4 +1,5 @@
 import './App.css';
+import 'animate.css'
 import { useState } from 'react';
 import Navigation from './components/Navbar'
 import CardsContainer from './components/CardsContainer';

@@ -2,6 +2,7 @@ import { Form, Button } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import $ from 'jquery'
 
 export default function Forms() {
 
@@ -11,9 +12,7 @@ export default function Forms() {
         urgency: '',
         icon: ''
     })
-
     const [iconSearch, setIconSearch] = useState('apple')
-
     const [icons, setIcons] = useState([])
 
     useEffect(() => {
@@ -25,6 +24,11 @@ export default function Forms() {
         fetchData()
     }, [iconSearch])
 
+    const handleIconSearch = (e) => {
+        e.preventDefault()
+        setIconSearch(e.target.value)
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (formData.name === '' || formData.icon === '') {
@@ -33,19 +37,12 @@ export default function Forms() {
 
             try {
                 await axios.post('/requests/new', formData)
-                    .then(res => console.log(res))
                     .then(navigate('/home'))
             } catch (err) {
                 console.log(err)
             }
         }
     }
-
-    const handleIconSearch = (e) => {
-        e.preventDefault()
-        setIconSearch(e.target.value)
-    }
-
 
     return (
         <Form className="form" onSubmit={handleSubmit}>
@@ -62,7 +59,8 @@ export default function Forms() {
             <div id="iconList">
                 {icons.map(icon => {
                     return (
-                        <img src={icon.url} alt={icon.name} width="100px" onClick={() => setFormData({ ...formData, icon: icon.url })} />
+                        <img src={icon.url} alt={icon.name} width="100px" onClick={(e) => { setFormData({ ...formData, icon: icon.url }); $('.selected').removeClass('selected'); e.target.classList.add('selected') }
+                        } />
                     )
                 })}
             </div>

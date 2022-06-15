@@ -1,15 +1,11 @@
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap'
 
 export default function Navigation({ setCGPhone }) {
-    const handleSetCGPhone = () => {
-        setCGPhone(parseInt(prompt("Please enter your caregivers cell phone number to receive text messages from the Jax App")))
-    }
+
     return (
         <>
-
             <Navbar fixed="top" bg="light" expand="xl">
                 <Navbar.Brand href="/home">
-
                     <img
                         src="/logo.png"
                         width="60"
@@ -22,15 +18,8 @@ export default function Navigation({ setCGPhone }) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link className="ms-auto" href="/add-request">Add Request</Nav.Link>
-                        <Nav.Link className="ms-auto" onClick={handleSetCGPhone}>Set Caregiver Phone Number</Nav.Link>
-                        {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown> */}
+                        <Nav.Link className="ms-auto" href="/add-request">[  Add Request  ]</Nav.Link>
+                        <Nav.Link className="ms-auto" onClick={() => setCGPhone(parseInt(prompt("Please enter your caregiver's cell phone number to receive text messages from JaxApp")))}>[ Set Caregiver Phone Number ]</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
