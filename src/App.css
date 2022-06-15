@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+h1 {
+  text-align: center;
+  text-decoration: underline;
+}
+
 .cards-container {
   padding: 50px;
   width: 100vw;
@@ -15,25 +20,30 @@
 
 .card {
   width: 30%;
-  height: 40%;
+  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 20px;
   box-shadow: 5px 5px 5px 1px #6f6f6f;
   cursor: pointer;
-  margin: 2%;
+  margin: 3%;
   margin-top: 50px;
 }
 
 .form {
-  margin-top: 150px;
-  height: 30vh;
-  width: 30vw;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 80vw;
+}
+
+.icon {
+  width: 50%;
+  height: 50%;
 }
 
 .low-urgency {
@@ -50,4 +60,24 @@
 
 .high-urgency:active {
   background-color: rgb(214, 106, 106) !important
+}
+
+.btn-primary {
+  margin-top: 20px;
+}
+
+#iconList {
+  height: 30vh;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#iconList>img {
+  width: 100px;
+  margin: 10px
 }

@@ -34,6 +34,34 @@ app.post('/api/messages', (req, res) => {
         });
 })
 
+const requests = [
+    {
+        name: 'bathroom',
+        urgency: '',
+        icon: "/toilet.svg",
+    },
+    {
+        name: 'pain meds',
+        urgency: '',
+        icon: "/pill.svg",
+    },
+    {
+        name: 'hang out',
+        urgency: '',
+        icon: "/couch.svg",
+    },
+    {
+        name: 'water',
+        urgency: '',
+        icon: "/water.svg",
+    },
+    {
+        name: 'food',
+        urgency: '',
+        icon: "/food.svg",
+    },
+]
+
 // async function main() {
 
 //     try {
@@ -48,12 +76,16 @@ app.post('/api/messages', (req, res) => {
 // main().catch(console.error);
 client.connect()
 
-// async function createRequests(client, requests) {
-//     const result = await client.db("JaxApp").collection("requests").insertMany(requests);
-//     console.log(`New listing created with the following id: ${result.insertedId}`);
-// }
+async function createRequests() {
+    const result = await client.db("JaxApp").collection("requests").insertMany(requests);
+    console.log(`New listing created with the following id: ${result.insertedId}`);
+}
 
-
+app.get('/createRequests', async (req, res) => {
+    await client.db("JaxApp").collection("requests").deleteMany({});
+    await createRequests()
+    res.redirect('/home')
+})
 
 app.get("/requests", async (req, res) => {
     await client.db("JaxApp").collection("requests").find({}).toArray()

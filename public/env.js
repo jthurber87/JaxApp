@@ -90,7 +90,4 @@ window.env = {
   "npm_node_execpath": "/opt/homebrew/Cellar/node/18.3.0/bin/node",
   "npm_config_prefix": "/opt/homebrew",
   "COLORTERM": "truecolor",
-  "REACT_APP_TWILIO_PHONE_NUMBER": "2058464627",
-  "REACT_APP_PASSCODE": "2187",
-  "REACT_APP_DB_URI": "mongodb+srv://jthurber87:Cheetoh71@cluster0.4c7nhhi.mongodb.net/?retryWrites=true&w=majority"
 };

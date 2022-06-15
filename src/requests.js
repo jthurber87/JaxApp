@@ -2,27 +2,27 @@ const requests = [
     {
         name: 'bathroom',
         urgency: '',
-        icon: "/628-toilet.svg.png",
+        icon: "/toilet.svg",
     },
     {
         name: 'pain meds',
         urgency: '',
-        icon: "/628-toilet.svg.png",
+        icon: "/pill.svg",
     },
     {
         name: 'hang out',
         urgency: '',
-        icon: "/628-toilet.svg.png",
+        icon: "/couch.svg",
     },
     {
         name: 'water',
         urgency: '',
-        icon: "/628-toilet.svg.png",
+        icon: "/water.svg",
     },
     {
         name: 'food',
         urgency: '',
-        icon: "/628-toilet.svg.png",
+        icon: "/food.svg",
     },
 ]
 

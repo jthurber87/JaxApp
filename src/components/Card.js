@@ -44,13 +44,13 @@ export default function Card({ request, CGPhone }) {
     return (
         <>
             < div className="low-urgency card" onClick={(e) => handleClick(e, "soon")} >
-                <img src={request.icon} alt={request.name} />
+                <img src={request.icon} alt={request.name} className="icon" />
                 <p>{request.name.replace(/\w\S*/g, function (txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
                 })} < br /> <u>Soon</u></p>
             </div >
             < div className="high-urgency card" onClick={(e) => handleClick(e, "now")}>
-                <img src={request.icon} alt={request.name} />
+                <img src={request.icon} alt={request.name} className="icon" />
                 <p>{request.name.replace(/\w\S*/g, function (txt) {
                     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
                 })} < br /> <u>Now</u></p>
