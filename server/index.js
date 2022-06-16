@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3001;
-const bcrypt = require('bcryptjs');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -88,27 +87,20 @@ app.post('/users/register', async (req, res) => {
         .then(result => {
             console.log(result)
             if (result === null) {
-                let hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-                req.body.password = hash;
-                console.log(req.body)
                 client.db("JaxApp").collection("users").insertOne(req.body);
-                res.send(JSON.stringify({ success: true }));
+                res.send({ success: true });
             } else {
-                res.status(500).send(JSON.stringify({ success: false }));
+                res.send({ success: false });
             }
         })
 })
 
 app.post('/users/login', async (req, res) => {
-    await client.db("JaxApp").collection("users").findOne({ email: req.body.email })
+    await client.db("JaxApp").collection("users").findOne(req.body)
         .then(user => {
             if (user) {
-                let hash = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-                if (bcrypt.compareSync(req.body.password, hash)) {
-                    res.send(JSON.stringify({ success: true, user: user }));
-                } else {
-                    res.send(JSON.stringify({ success: false }));
-                }
+                res.send(JSON.stringify({ success: true }));
+                res.send(user);
             } else {
                 res.send(JSON.stringify({ success: false }));
             }

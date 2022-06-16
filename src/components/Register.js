@@ -25,7 +25,8 @@ export default function Register() {
             try {
                 await axios.post('/users/register', formData)
                     .then(res => {
-                        if (res.data.success === true) {
+                        console.log(res)
+                        if (res.data.success == true) {
                             navigate('/login')
                         } else {
                             alert("Email already in use")

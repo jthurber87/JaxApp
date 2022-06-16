@@ -1,9 +1,9 @@
 import { Form, Button } from 'react-bootstrap'
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-export default function Login({ setUser }) {
+export default function Register() {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -18,15 +18,15 @@ export default function Login({ setUser }) {
         } else {
 
             try {
-                await axios.post('/users/login', formData)
+                await axios.post('/users/register', formData)
                     .then(res => {
-                        if (res.data.success === true) {
-                            setUser(res.data.user);
-                            navigate('/');
+                        if (res.success === true) {
+                            navigate('/login')
                         } else {
-                            alert("Failed");
+                            alert("Failed")
                         }
                     })
+                    .then(navigate('/home'))
             } catch (err) {
                 console.log("err: " + err)
             }
@@ -46,13 +46,8 @@ export default function Login({ setUser }) {
                 <Form.Control type="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
             </Form.Group>
             <Button variant="primary" type="submit" style={{ width: " 50%", alignSelf: "center" }}>
-                Login
+                Register
             </Button>
-            <Link to="/register" style={{ alignSelf: "center" }}>
-                <Button variant="primary" type="none" >
-                    Register
-                </Button>
-            </Link>
         </Form >
     )
 }

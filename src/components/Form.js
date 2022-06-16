@@ -4,14 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import $ from 'jquery'
 
-export default function Forms({ user }) {
+export default function Forms() {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
         name: '',
         urgency: '',
-        icon: '',
-        user: user.email
+        icon: ''
     })
     const [iconSearch, setIconSearch] = useState('apple')
     const [icons, setIcons] = useState([])
@@ -38,7 +37,7 @@ export default function Forms({ user }) {
 
             try {
                 await axios.post('/requests/new', formData)
-                    .then(navigate('/'))
+                    .then(navigate('/home'))
             } catch (err) {
                 console.log(err)
             }
