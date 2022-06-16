@@ -1,29 +1,28 @@
 const requests = [
     {
-        name: 'bathroom',
+        name: 'Bathroom',
         urgency: '',
         icon: "/toilet.svg",
     },
     {
-        name: 'pain meds',
+        name: 'Pain Meds',
         urgency: '',
         icon: "/pill.svg",
     },
     {
-        name: 'hang out',
+        name: 'Hang Out',
         urgency: '',
         icon: "/couch.svg",
     },
     {
-        name: 'water',
+        name: 'Water',
         urgency: '',
         icon: "/water.svg",
     },
     {
-        name: 'food',
+        name: 'Food',
         urgency: '',
         icon: "/food.svg",
     },
 ]
 
-export default requests

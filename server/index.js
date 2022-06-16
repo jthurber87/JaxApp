@@ -36,27 +36,27 @@ app.post('/api/messages', (req, res) => {
 
 const requests = [
     {
-        name: 'bathroom',
+        name: 'Bathroom',
         urgency: '',
         icon: "/toilet.svg",
     },
     {
-        name: 'pain meds',
+        name: 'Pain Meds',
         urgency: '',
         icon: "/pill.svg",
     },
     {
-        name: 'hang out',
+        name: 'Hang Out',
         urgency: '',
         icon: "/couch.svg",
     },
     {
-        name: 'water',
+        name: 'Water',
         urgency: '',
         icon: "/water.svg",
     },
     {
-        name: 'food',
+        name: 'Food',
         urgency: '',
         icon: "/food.svg",
     },
@@ -74,7 +74,7 @@ app.get("/requests", async (req, res) => {
 app.get('/requests/seed', async (req, res) => {
     await client.db("JaxApp").collection("requests").deleteMany({});
     const result = await client.db("JaxApp").collection("requests").insertMany(requests);
-    console.log(`New listing created with the following id: ${result.insertedId}`);
+    console.log(`Listings created: ${result.insertedCount}`);
     res.redirect('/requests')
 })
 

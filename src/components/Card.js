@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-export default function Card({ request, CGPhone, setSelected, id }) {
+export default function Card({ request, CGPhone }) {
 
     const [state, setState] = useState(
         {
@@ -19,45 +19,21 @@ export default function Card({ request, CGPhone, setSelected, id }) {
             },
             body: JSON.stringify({
                 to: CGPhone,
-                body: request.name + " " + urgency
+                body: `\n${request.name}, ${urgency} please!`
             })
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    setState({
-                        error: false,
-                        submitting: false,
-                        message: {
-                            to: '',
-                            body: ''
-                        }
-                    });
-                } else {
-                    setState({
-                        error: true,
-                        submitting: false
-                    });
-                }
-            });
     }
     return (
         <>
-            < div className="low-urgency card animate__fadeInDown" onClick={(e) => handleClick(e, "soon")} >
+            < div className="low-urgency card" onClick={(e) => handleClick(e, "soon")} >
                 <img src={request.icon} alt={request.name} className="icon" />
-                <p>{request.name.replace(/\w\S*/g, function (txt) {
-                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-                })}
-                </p>
-                <p><u>Soon</u></p>
+                <p>{request.name}
+                    <br /><u>Soon</u></p>
             </div >
-            < div className="high-urgency card animate__fadeInDown" onClick={(e) => handleClick(e, "now")}>
+            < div className="high-urgency card" onClick={(e) => handleClick(e, "now")}>
                 <img src={request.icon} alt={request.name} className="icon" />
-                <p>{request.name.replace(/\w\S*/g, function (txt) {
-                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-                })}
-                </p>
-                <p><u>Now</u></p>
+                <p>{request.name}
+                    <br /><u>Now</u></p>
             </div >
         </>
     )
