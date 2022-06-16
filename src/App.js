@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         <Navigation setCGPhone={setCGPhone} />
         <Routes>
-          <Route path="/home" element={<CardsContainer CGPhone={CGPhone} />} />
+          <Route path="/" element={<CardsContainer CGPhone={CGPhone} />} />
           <Route path="/add-request" element={<Form />} />
         </Routes>
       </div>

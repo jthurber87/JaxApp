@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# JaxApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Background
 
-## Available Scripts
+My sister, Jacqueline (Jax) spent most of her life battling cancer. Recently, she lost that battle, fighting until the very end for both her life and independence. However, as the cancer spread, it slowly took away her ability to walk, talk, and perform daily activities without putting herself at risk.
 
-In the project directory, you can run:
+Myself, along with the rest of my family, gathered together to provide her with whatever she needed to be comfortable. But with her extreme difficulty communicating, she was often unable to express what she wanted. At the time, I came up with a quick, easy solution: print a piece of paper with icons tied to her needs: a toilet, a cup of water, even a couch for when she just wanted company.
 
-### `npm start`
+After she passed, I realized that I could expand this to accomidate both patients and caregivers. As a patient, you would be able to set up a simple, easy-to-understand home page of icons which, when tapped, would send a text message with a request to the caregiver if they were not immediately nearby. You would even be able to provide the urgency of the request by simply choosing between the green ("soon") or red ("now") buttons. With my background in nursing as well as my personal history with my sister, I felt confident that I would be able to create this app as a patient advocate.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This is an early draft of this idea, which I plan to expand further (see road map below).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies
 
-### `npm test`
+- MongoDB Atlas
+- Express.JS
+- React
+- Node.JS
+- Twilio API
+- SVGrepo API
+- jQuery
+- React Bootstrap
+- React Router Dom
+-
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+1. Fork and clone this repository.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. cd into the project directory.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. npm run server
 
-### `npm run eject`
+5. npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+6. Navigate to http://localhost:3000/
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Road Map
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The immediate next step will be to add the ability to register, log in and log out of the app.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+From there, I intend to pay particular attention to the new user experience, possibly asking for the things they have difficulty with and offering a list of common requests.
 
-## Learn More
+Recreate this app with React Native, integrating with AWS to provide notification services.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I would also like the ability for caregivers to have more advanced options, including medication reminders, and the ability to respond to "now" urgency requests to indicate acknowledgement.
