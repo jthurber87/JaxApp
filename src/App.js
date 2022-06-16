@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navigation setCGPhone={setCGPhone} />
+        <Navigation CGPhone={CGPhone} setCGPhone={setCGPhone} />
         <Routes>
           <Route path="/" element={<CardsContainer CGPhone={CGPhone} />} />
           <Route path="/add-request" element={<Form />} />

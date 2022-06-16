@@ -21,7 +21,6 @@ This is an early draft of this idea, which I plan to expand further (see road ma
 - jQuery
 - React Bootstrap
 - React Router Dom
--
 
 ## Getting Started
 
