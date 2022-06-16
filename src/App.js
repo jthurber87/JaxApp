@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Navigation from './components/Navbar'
 import CardsContainer from './components/CardsContainer';
 import Form from './components/Form';
+import Login from './components/Login';
+import Register from './components/Register';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<CardsContainer CGPhone={CGPhone} />} />
           <Route path="/add-request" element={<Form />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>

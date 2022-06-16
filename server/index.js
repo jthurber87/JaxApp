@@ -83,16 +83,26 @@ app.post('/requests/new', async (req, res) => {
 })
 
 app.post('/users/register', async (req, res) => {
-    await client.db("JaxApp").collection("users").insertOne(req.body);
+    await client.db("JaxApp").collection("users").findOne({ email: req.body.email })
+        .then(result => {
+            console.log(result)
+            if (result === null) {
+                client.db("JaxApp").collection("users").insertOne(req.body);
+                res.send({ success: true });
+            } else {
+                res.send({ success: false });
+            }
+        })
 })
 
 app.post('/users/login', async (req, res) => {
     await client.db("JaxApp").collection("users").findOne(req.body)
         .then(user => {
             if (user) {
+                res.send(JSON.stringify({ success: true }));
                 res.send(user);
             } else {
-                res.send({});
+                res.send(JSON.stringify({ success: false }));
             }
         }
         )
