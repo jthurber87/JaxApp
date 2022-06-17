@@ -1,8 +1,8 @@
-import { Navbar, Nav, Modal } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap'
 import { useState } from 'react'
 import CaregiverModal from './CaregiverModal'
 
-export default function Navigation({ CGPhone, setCGPhone }) {
+export default function Navigation({ CGPhone, setCGPhone, user }) {
     const [show, setShow] = useState(false)
     return (
         <>
@@ -20,8 +20,21 @@ export default function Navigation({ CGPhone, setCGPhone }) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <Nav.Link className="ms-auto" href="/add-request">[  <u>Add Request</u>  ]</Nav.Link>
-                        <Nav.Link className="ms-auto" onClick={() => setShow(true)}>[ <u>Set Caregiver Phone Number</u> ]</Nav.Link>
+                        {user ?
+                            <>
+                                <Nav.Link className="ms-auto" href="/add-request">[  <u>Add Request</u>  ]</Nav.Link>
+                                <Nav.Link className="ms-auto" onClick={() => setShow(true)}>[ <u>Set Caregiver Phone Number</u> ]</Nav.Link>
+                                <Nav.Link className="ms-auto" href="/logout">[ <u>Logout</u> ]</Nav.Link>
+                                <Nav.Link className="ms-auto" > Welcome, {user.name} </Nav.Link>
+                            </>
+                            :
+                            <>
+                                <Nav.Link className="ms-auto" href="/add-request">[  <u>Add Request</u>  ]</Nav.Link>
+                                <Nav.Link className="ms-auto" onClick={() => setShow(true)}>[ <u>Set Caregiver Phone Number</u> ]</Nav.Link>
+                                <Nav.Link className="ms-auto" href="/login">[ <u>Login</u> ]</Nav.Link>
+                            </>
+                        }
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

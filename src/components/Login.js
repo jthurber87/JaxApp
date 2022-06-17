@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-export default function Register() {
+export default function Register({ setUser }) {
 
     const navigate = useNavigate()
     const [formData, setFormData] = useState({
@@ -23,6 +23,7 @@ export default function Register() {
                         console.log(res)
                         if (res.data.success === true) {
                             alert(res.data.user.name + " is logged in!")
+                            setUser(res.data.user)
                             navigate('/')
                         } else {
                             if (res.data.userExists === true) {
