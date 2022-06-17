@@ -6,6 +6,7 @@ import CardsContainer from './components/CardsContainer';
 import Form from './components/Form';
 import Login from './components/Login';
 import Register from './components/Register';
+import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

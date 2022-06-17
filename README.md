@@ -1,5 +1,9 @@
 # JaxApp
 
+![Jacqueline](/public/Jacqueline.jpg "Jacqueline Thurber")
+
+#### In honor of my sister, Jacqueline Thurber
+
 ## Background
 
 My sister, Jacqueline (Jax) spent most of her life battling cancer. Recently, she lost that battle, fighting until the very end for both her life and independence. However, as the cancer spread, it slowly took away her ability to walk, talk, and perform daily activities without putting herself at risk.

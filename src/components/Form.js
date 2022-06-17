@@ -16,6 +16,7 @@ export default function Forms() {
     const [iconSearch, setIconSearch] = useState('apple')
     const [icons, setIcons] = useState([])
 
+    // Load icons to default "Apple"
     useEffect(() => {
         async function fetchData() {
             await fetch(`https://api.svgapi.com/v1/SxlFUKwk51/list/?search=${iconSearch}&limit=50`)
