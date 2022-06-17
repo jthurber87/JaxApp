@@ -19,7 +19,7 @@ export default function Card({ request, CGPhone }) {
             },
             body: JSON.stringify({
                 to: CGPhone,
-                body: `\n${request.name}, ${urgency} please!`
+                body: `\n${request.name} ${urgency} please!`
             })
         })
     }

@@ -76,6 +76,7 @@ h1 {
 
 .low-urgency:active {
   background-color: rgb(156, 198, 148) !important;
+  box-shadow: 3px 3px 3px 1px #6f6f6f;
 }
 
 .high-urgency {
@@ -84,7 +85,9 @@ h1 {
 }
 
 .high-urgency:active {
-  background-color: rgb(214, 106, 106) !important
+  background-color: rgb(214, 106, 106) !important;
+  box-shadow: 3px 3px 3px 1px #6f6f6f;
+
 }
 
 .btn-primary {
