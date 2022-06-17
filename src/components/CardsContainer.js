@@ -11,7 +11,7 @@ export default function CardsContainer({ CGPhone }) {
             await axios.get('/requests')
                 .then(data => setRequests(data.data))
         }
-        fetchData()
+        setTimeout(() => fetchData(), 1000)
     }, [])
 
     // useEffect(() => {
@@ -20,7 +20,7 @@ export default function CardsContainer({ CGPhone }) {
 
     return (
         <div className="cards-container animate__fadeIn">
-            {requests ? requests.map((request, idx) => <Card key={idx} request={request} CGPhone={CGPhone} />) : <Card key={0} request={{ name: "Loading...", icon: "/circular-arrow-svgrepo-com.svg" }} />}
+            {requests ? requests.map((request, idx) => <Card key={idx} request={request} CGPhone={CGPhone} />) : <img src="/Spinner-1s-200px.svg" style={{ width: "30vw" }} />}
         </div>
     )
 }

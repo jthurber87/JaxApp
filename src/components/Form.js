@@ -39,7 +39,7 @@ export default function Forms() {
 
             try {
                 await axios.post('/requests/new', formData)
-                    .then(navigate('/home'))
+                    .then(navigate('/'))
             } catch (err) {
                 console.log(err)
             }
