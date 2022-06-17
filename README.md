@@ -20,29 +20,32 @@ This is an early draft of this idea, which I plan to expand further (see road ma
 - Express.JS
 - React
 - Node.JS
+- React Router Dom
+- React Bootstrap
 - Twilio API
 - SVGrepo API
 - jQuery
-- React Bootstrap
-- React Router Dom
+- bcryptjs
 
-## Getting Started
+<!-- ## Getting Started
 
-1. Fork and clone this repository.
+~~1. Fork and clone this repository.~~
 
-2. cd into the project directory.
+~~2. cd into the project directory.~~
 
-3. npm install
+~~3. npm install~~
 
-4. npm run server
+~~4. npm run server~~
 
-5. npm start
+~~5. npm start~~
 
-6. Navigate to http://localhost:3000/
+~~6. Navigate to http://localhost:3000/~~
+
+Until deployed,  -->
 
 ## Road Map
 
-The immediate next step will be to add the ability to register, log in and log out of the app.
+The immediate next step will be to add the ability to register, log in and log out of the app. (Currently in development)
 
 From there, I intend to pay particular attention to the new user experience, possibly asking for the things they have difficulty with and offering a list of common requests.
 
