@@ -57,9 +57,9 @@ export default function Forms() {
                 <Form.Control type="text" placeholder="Search for an icon..." onChange={handleIconSearch} />
             </Form.Group>
             <div id="iconList">
-                {icons.map(icon => {
+                {icons.map((icon, idx) => {
                     return (
-                        <img src={icon.url} alt={icon.name} width="100px" onClick={(e) => { setFormData({ ...formData, icon: icon.url }); $('.selected').removeClass('selected'); e.target.classList.add('selected') }
+                        <img key={idx} src={icon.url} alt={icon.name} width="100px" onClick={(e) => { setFormData({ ...formData, icon: icon.url }); $('.selected').removeClass('selected'); e.target.classList.add('selected') }
                         } />
                     )
                 })}

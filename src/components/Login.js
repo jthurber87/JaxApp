@@ -18,15 +18,21 @@ export default function Register() {
         } else {
 
             try {
-                await axios.post('/users/register', formData)
+                await axios.post('/users/login', formData)
                     .then(res => {
-                        if (res.success === true) {
-                            navigate('/login')
+                        console.log(res)
+                        if (res.data.success === true) {
+                            alert(res.data.user.name + " is logged in!")
+                            navigate('/')
                         } else {
-                            alert("Failed")
+                            if (res.data.userExists === true) {
+                                alert("Incorrect username or password.")
+                            } else {
+                                alert("User not found")
+                            }
                         }
                     })
-                    .then(navigate('/home'))
+                    .then(navigate('/'))
             } catch (err) {
                 console.log("err: " + err)
             }

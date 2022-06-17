@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3001;
+const bcrypt = require('bcryptjs');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -82,27 +83,37 @@ app.post('/requests/new', async (req, res) => {
     await client.db("JaxApp").collection("requests").insertOne(req.body);
 })
 
+const salt = bcrypt.genSaltSync(10)
+
+
 app.post('/users/register', async (req, res) => {
     await client.db("JaxApp").collection("users").findOne({ email: req.body.email })
         .then(result => {
-            console.log(result)
             if (result === null) {
+                req.body.password = bcrypt.hashSync(req.body.password, salt)
                 client.db("JaxApp").collection("users").insertOne(req.body);
-                res.send({ success: true });
+                res.send(JSON.stringify({ success: true }));
             } else {
-                res.send({ success: false });
+                res.send(JSON.stringify({ success: false }));
             }
         })
 })
 
 app.post('/users/login', async (req, res) => {
-    await client.db("JaxApp").collection("users").findOne(req.body)
+    await client.db("JaxApp").collection("users").findOne({ email: req.body.email })
         .then(user => {
+            console.log(user.password + "<== user password")
+            console.log(bcrypt.hashSync(req.body.password, salt) + "<== req.body password unhashed")
+            console.log(user.password === bcrypt.hashSync(req.body.password, salt))
             if (user) {
-                res.send(JSON.stringify({ success: true }));
-                res.send(user);
+                if (bcrypt.compareSync(req.body.password, bcrypt.hashSync(req.body.password, salt)) // true
+                ) {
+                    res.send(JSON.stringify({ success: true, user: user }));
+                } else {
+                    res.send(JSON.stringify({ success: false, userExists: true }));
+                }
             } else {
-                res.send(JSON.stringify({ success: false }));
+                res.send(JSON.stringify({ success: false, userExists: false }));
             }
         }
         )
